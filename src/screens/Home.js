@@ -39,41 +39,41 @@ export default function HomeScreen({ navigation }) {
           </View>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteBiologia') }}>
-            <Disciplina title={'Biologia'} image={require('../../img/genetica.png')} />
+            <Disciplina title={'Biologia'} image={require('../img/genetica.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteFilosofia') }}>
-            <Disciplina title={'Filosofia'} image={require('../../img/filosofia.png')} />
+            <Disciplina title={'Filosofia'} image={require('../img/filosofia.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteFisica') }}>
-            <Disciplina title={'Física'} image={require('../../img/fisica.png')} />
+            <Disciplina title={'Física'} image={require('../img/fisica.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteGeografia') }}>
-            <Disciplina title={'Geografia'} image={require('../../img/geografia.png')} />
+            <Disciplina title={'Geografia'} image={require('../img/geografia.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteHistoria') }}>
-            <Disciplina title={'História'} image={require('../../img/historia.png')} />
+            <Disciplina title={'História'} image={require('../img/historia.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteLiteratura') }}>
-            <Disciplina title={'Literatura'} image={require('../../img/literatura.png')} />
+            <Disciplina title={'Literatura'} image={require('../img/literatura.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteMatematica') }}>
-            <Disciplina title={'Matemática'} image={require('../../img/matematica.png')} />
+            <Disciplina title={'Matemática'} image={require('../img/matematica.png')} />
           </TouchableOpacity>
 
 
           <TouchableOpacity onPress={() => { navigation.navigate('RoutePortugues') }}>
-            <Disciplina title={'Português'} image={require('../../img/portugues.png')} />
+            <Disciplina title={'Português'} image={require('../img/portugues.png')} />
           </TouchableOpacity>
 
 
           <TouchableOpacity onPress={() => { navigation.navigate('RouteQuimica') }}>
-            <Disciplina title={'Química'} image={require('../../img/quimica.png')} />
+            <Disciplina title={'Química'} image={require('../img/quimica.png')} />
           </TouchableOpacity>
         </View>
       </ScrollView>

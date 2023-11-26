@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput,  Image, ScrollView, Dimensions, Alert} from "react-native";
-
+import { checkAnswer } from "../api/CheckResponseRecovery";
+import { getQuestionRecovery } from "../api/GetQuestionRecovery";
 
 export default function PerguntaRec({navigation, route}){
 
   const [pergunta, setPergunta] = useState('');
   const [resposta, setResposta] = useState('');
-  const [loadingRequest, setLoadingRequest] = useState(false);
   
   useEffect(() => {
     const onfocusscreen = navigation.addListener('focus', () => {
@@ -18,16 +18,11 @@ export default function PerguntaRec({navigation, route}){
 
   function handleAnswer(){
     const nomeUsuario = route.params?.user;
-    checkAnswer(nomeUsuario, resposta, navigation, setLoadingRequest)
+    checkAnswer(nomeUsuario, resposta, navigation)
   }
   return(
     <View style={styles.container}>     
-      <LinearGradient 
-        style={styles.linearGradient}
-        colors={['#ff4142', '#c03c99', '#7b38fb']} 
-        start={{ x: 0, y: 1 }}
-        end={{ x: 1, y: 1 }}
-      />
+    
       
       <ScrollView>
         <View style={styles.contentContainer}>
@@ -35,7 +30,7 @@ export default function PerguntaRec({navigation, route}){
           <View style={styles.containerLogoText}>
             <View style={styles.containerImage}>
               <Image
-                source={require('../../img/logo1.png')}
+                source={require('../img/logo1.png')}
                 style={{height:180, width:180}}
               />
             </View>
@@ -58,9 +53,11 @@ export default function PerguntaRec({navigation, route}){
               <Text style={styles.follow}>Esqueci a resposta</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>{navigation.navigate('NovaSenha')}}>
+            <TouchableOpacity onPress={()=>{
+              handleAnswer()
+            }}>
               <View style={{alignItems: 'center' , marginTop:30}}>
-                <Button text="Recuperar" loadingfeedback={loadingRequest}/>
+                <Text>Verificar</Text>
               </View>
             </TouchableOpacity>
 
@@ -82,6 +79,7 @@ const styles = StyleSheet.create({
       },
       container:{
         flex: 1,
+        backgroundColor: 'black'
       },
       contentContainer:{
         alignItems: "center", 

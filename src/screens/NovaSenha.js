@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput,  Image, ScrollView, Dimensions} from "react-native";
 
-
+import { setPassword } from "../api/SetPasswordRecovery";
 
 export default function NovaSenha({navigation, route}){
 
 
-
+  const nomeUsuario = route.params?.user;
   const [senha, setSenha] = useState('');
   const [confSenha, setConfSenha] = useState('');
-  const [loadingRequest, setLoadingRequest] = useState(false);
+
   
 
   return(
@@ -19,7 +19,7 @@ export default function NovaSenha({navigation, route}){
           <View style={styles.containerLogoText}>
             <View style={styles.containerImage}>
               <Image
-                source={require('../../img/logo1.png')}
+                source={require('../img/logo1.png')}
                 style={{height:180, width:180}}
               />
             </View>
@@ -44,9 +44,11 @@ export default function NovaSenha({navigation, route}){
               value={confSenha}
               onChangeText={setConfSenha}
             />
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={()=>{setPassword(nomeUsuario, senha, confSenha, navigation)}}
+            >
               <View style={{alignItems: 'center' , marginTop:40}}>
-              <Button text="Recuperar Conta" loadingfeedback={loadingRequest}/>
+              <Text>Recuperar conta</Text>
               </View>
             </TouchableOpacity>
           </View>

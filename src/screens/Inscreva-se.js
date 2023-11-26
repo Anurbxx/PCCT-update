@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,11 +9,28 @@ import {
   ScrollView
 } from 'react-native';
 
-export default function Inscreva_se({ navigation }) {
+import { signUp } from '../api/Signup';
+
+export default function Inscreva_se({ navigation, route}) {
+
+  const [nome, setNome] = useState('');
+  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [senha, setSenha] = useState('');
+  const [senhaConf, setSenhaConf] = useState('');
+  const [pergunta, setPergunta] = useState('');
+  const [resposta, setResposta] = useState('');
+
+  React.useEffect(() => {
+    if (route.params?.pergunta) {
+      setPergunta(route.params?.pergunta)
+      setResposta(route.params?.resposta)
+    }
+  }, [route.params?.pergunta]);
+
   return (
     <ScrollView>
       <View style={styles.containerimage}>
-        <Image source={require('../../img/logo1.png')} style={styles.logo}></Image>
+        <Image source={require('../img/logo1.png')} style={styles.logo}></Image>
       </View>
 
       <View style={styles.containerlogin}>
@@ -27,6 +44,8 @@ export default function Inscreva_se({ navigation }) {
                 style={styles.textinput}
                 placeholder="Digite seu nome"
                 placeholderTextColor="#666"
+                value={nome}
+                onChangeText={setNome}
               />
             </View>
             <View style={styles.containerlt}>
@@ -35,6 +54,8 @@ export default function Inscreva_se({ navigation }) {
                 style={styles.textinput}
                 placeholder="Digite o nome de usuário"
                 placeholderTextColor="#666"
+                value={nomeUsuario}
+                onChangeText={setNomeUsuario}
               />
             </View>
             <View style={styles.containerlt}>
@@ -43,6 +64,8 @@ export default function Inscreva_se({ navigation }) {
                 style={styles.textinput}
                 placeholder="Digite o nome de usuário"
                 placeholderTextColor="#666"
+                value={senha}
+                onChangeText={setSenha}
               />
             </View>
 
@@ -52,6 +75,8 @@ export default function Inscreva_se({ navigation }) {
                 style={styles.textinput}
                 placeholder="Digite o nome de usuário"
                 placeholderTextColor="#666"
+                value={senhaConf}
+                onChangeText={setSenhaConf}
               />
             </View>
 
@@ -67,7 +92,21 @@ export default function Inscreva_se({ navigation }) {
             <TouchableOpacity
               style={styles.botao}
               onPress={() => {
-                navigation.navigate('Home');
+                console.log(nome, nomeUsuario, senha, senhaConf, pergunta, resposta)
+                signUp(nome,
+                  nomeUsuario,
+                  senha,
+                  pergunta,
+                  resposta,
+                  
+                  navigation,
+              
+                  setNome,
+                  setNomeUsuario,
+                  setSenha,
+                  setSenhaConf,
+                  setPergunta,
+                  setResposta,)
               }}>
               <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center', }}>
                 Inscreva-se

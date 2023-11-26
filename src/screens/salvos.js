@@ -26,7 +26,7 @@ export default function Salvos() {
                 <TouchableOpacity style={styles.botao}>
                     <Text style={styles.textsalvos}>Conteúdo</Text>
                     <Image
-                        source={require('../../img/conteudos.png')}
+                        source={require('../img/conteudos.png')}
                         style={{ width: 40, height: 40, }}
                     />
 
@@ -36,7 +36,7 @@ export default function Salvos() {
                 <TouchableOpacity style={styles.botao}>
                     <Text style={styles.textsalvos}>Questões</Text>
                     <Image
-                        source={require('../../img/questoes.png')}
+                        source={require('../img/questoes.png')}
                         style={{ width: 47, height: 47, }}
                     />
 
@@ -46,7 +46,7 @@ export default function Salvos() {
                 <TouchableOpacity style={styles.botao}>
                     <Text style={styles.textsalvos}>Videoaula</Text>
                     <Image
-                        source={require('../../img/video.png')}
+                        source={require('../img/video.png')}
                         style={{ width: 41, height: 41, }}
                     />
 

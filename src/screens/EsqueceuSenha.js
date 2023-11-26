@@ -1,8 +1,12 @@
 import React,{ useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput,  Image, ScrollView, Dimensions, Alert} from "react-native";
 
+import { checkUsernameRegistry } from '../api/CheckUser';
 
 export default function EsqueceuSenha({navigation}){
+
+  const [nomeUsuario, setNomeUsuario] = useState('')
+
   return(
   <View style={styles.container}>     
     <ScrollView>
@@ -11,7 +15,7 @@ export default function EsqueceuSenha({navigation}){
         <View style={styles.containerLogoText}>
           <View style={styles.containerImage}>
             <Image
-              source={require('../../img/logo1.png')}
+              source={require('../img/logo1.png')}
               style={{height:180, width:180}}
             />
           </View>
@@ -26,16 +30,19 @@ export default function EsqueceuSenha({navigation}){
           <TextInput
             placeholder="Usuario123"
             style={styles.input}
-            //value={nomeUsuario}
-            //onChangeText={setNomeUsuario}
+            value={nomeUsuario}
+            onChangeText={setNomeUsuario}
           />
 
        
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity 
+            style={styles.botao}
+            onPress={()=>{checkUsernameRegistry(nomeUsuario, navigation)}}
+            >
             <Text style={styles.follow}>Enviar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{navigation.navigate('PerguntaRec')}}>
+          <TouchableOpacity>
             <View style={{alignItems: 'center' , marginTop:30}}>
               
             </View>

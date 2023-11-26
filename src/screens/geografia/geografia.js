@@ -28,22 +28,22 @@ export default function Biologia({ navigation }) {
         <View style={styles.container}>
 
           <View style={{height: 130, marginTop: 20}}>
-            <Disciplina title={'Geografia'} image={require('../../../img/genetica.png')} />
+            <Disciplina title={'Geografia'} image={require('../../img/genetica.png')} />
           </View>
             <TouchableOpacity onPress={() => { navigation.navigate('Conteudos') }}>
-              <Disciplina title={'Conteúdo'} image={require('../../../img/conteudos.png')} />
+              <Disciplina title={'Conteúdo'} image={require('../../img/conteudos.png')} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => { navigation.navigate('Questoes') }}>
-              <Disciplina title={'Questões'} image={require('../../../img/questoes.png')} />
+              <Disciplina title={'Questões'} image={require('../../img/questoes.png')} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => { navigation.navigate('Videoaula') }}>
-              <Disciplina title={'Videoaula'} image={require('../../../img/video.png')} />
+              <Disciplina title={'Videoaula'} image={require('../../img/video.png')} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => { navigation.navigate('Salvos') }}>
-              <Disciplina title={'Salvos'} image={require('../../../img/coracao.png')} />
+              <Disciplina title={'Salvos'} image={require('../../img/coracao.png')} />
             </TouchableOpacity>
           </View>
 
